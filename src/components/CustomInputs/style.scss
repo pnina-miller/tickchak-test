@@ -1,0 +1,156 @@
+@import "../../variable.scss";
+
+.input-wrapper {
+  width: 270px;
+  display: grid;
+  grid-template-areas:
+    "icon input"
+    "empty text";
+  flex-direction: column;
+  font-size: 10px;
+  grid-template-columns: max-content auto;
+  column-gap: 14px;
+
+  .group {
+    position: relative;
+    padding: 15px 0 0;
+    // margin-top: 10px;
+  }
+
+  .bicycle-icon {
+    width: 24px;
+  }
+  .field {
+    font-family: inherit;
+    width: 100%;
+    height: 14px;
+    border: 0;
+    border-bottom: 1px solid #d2d2d2;
+    outline: 0;
+    font-size: 16px;
+    color: #212121;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .label {
+      font-size: 16px;
+      font-weight: bold;
+      cursor: text;
+      top: 20px;
+    }
+  }
+  label,
+  .field:focus ~ .label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 12px;
+  }
+
+  .field:focus ~ .label {
+    color: $tickchakBlue;
+  }
+
+  .field:focus {
+    padding-bottom: 6px;
+    border-bottom: 2px solid $tickchakBlue;
+  }
+  .bicycle-icon {
+    grid-area: icon;
+    align-self: self-end;
+  }
+  .group {
+    grid-area: input;
+  }
+  .input-explanation {
+    grid-area: text;
+  }
+  .empty {
+    grid-area: empty;
+  }
+
+  .name {
+    font-weight: bold;
+    margin-left: 5.5px;
+  }
+}
+
+.switch {
+  position: relative;
+  width: 39px;
+  height: 16px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $tickchakBlue;
+    transition: background-color 0.4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+
+    &:after {
+      position: absolute;
+      content: "";
+      height: 8px;
+      width: 8px;
+      left: 3px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+  }
+  input.not-checked + .slider {
+    background-color: #eaeaea;
+  }
+
+  input.not-checked + .slider + .text {
+    left: 100%;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px $tickchakBlue;
+  }
+
+  input.not-checked + .slider:after {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 2px;
+
+    &:after {
+      border-radius: 50%;
+    }
+  }
+  .text {
+    font-size: 8pt;
+    position: relative;
+    top: -5.5px;
+    left: 4px;
+    transition: left 0.4s;
+    font-weight: bold;
+  }
+}

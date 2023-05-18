@@ -1,0 +1,138 @@
+@import "../../variable.scss";
+
+@mixin form-position-desktop-close {
+    right: calc($form-width * -1);
+}
+@mixin form-position-desktop-open {
+    right: 0;
+}
+
+$form-width: min(393pt, 30%);
+$form-width-mobile: 90%;
+
+@mixin form-position-mobile-open {
+    top: 15vh;
+}
+@mixin form-position-mobile-close {
+    top: 120vh;
+}
+
+.ticket-form-container {
+    background-color: white;
+    height: 100%;
+    border-radius: 16pt 16pt 0pt 16pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+
+    @media (min-width: 768px) {
+        top: 0;
+        width: $form-width;
+        position: fixed;
+        @include form-position-desktop-close;
+        overflow-y: auto;
+        min-width: 350px;
+
+        &.open {
+            @include form-position-desktop-open;
+            animation-name: come-in-right;
+            animation-duration: 0.5s;
+        }
+        &.close {
+            @include form-position-desktop-close;
+            animation-name: come-out-right;
+            animation-duration: 0.5s;
+        }
+    }
+    @media (max-width: 768px) {
+        width: $form-width-mobile;
+        bottom: -100%;
+        position: fixed;
+        height: 90vh;
+
+        &.open {
+            @include form-position-mobile-open;
+            animation-name: come-in-top;
+            animation-duration: 0.5s;
+        }
+        &.close {
+            @include form-position-mobile-close;
+            animation-name: come-out-top;
+            animation-duration: 0.5s;
+        }
+    }
+
+    .form-header {
+        border-bottom: 57pt solid #cad127;
+        height: 13px;
+        padding: 18px 20px 35px 0;
+        font-size: 14px;
+        .close-button {
+            height: 36px;
+            width: 36px;
+            background-color: transparent;
+            border: none;
+            font-weight: bold;
+            transition: rotate 0.3s;
+            &:hover {
+                rotate: 90deg;
+            }
+            &:blur {
+                rotate: 0deg;
+            }
+            img {
+                width: 12px;
+            }
+        }
+
+        .title {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    }
+
+    .form-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .form-footer {
+        margin-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        gap: 7.5px;
+        button {
+            border-radius: 21px;
+            border: 0.1px solid;
+            height: 31px;
+            width: 77px;
+            background-color: white;
+
+            &.btn-colored {
+                background-color: $tickchakBlue;
+            }
+        }
+    }
+}
+
+@keyframes come-in-right {
+    0% { @include form-position-desktop-close; }
+    100% { @include form-position-desktop-open; }
+}
+@keyframes come-out-right {
+    0% { @include form-position-desktop-open; }
+    100% { @include form-position-desktop-close; }
+}
+
+@keyframes come-in-top {
+    0% { @include form-position-mobile-close; }
+    100% { @include form-position-mobile-open; }
+}
+
+@keyframes come-out-top { 
+    0% { @include form-position-mobile-open; }
+    100% { @include form-position-mobile-close; }
+}

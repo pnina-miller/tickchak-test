@@ -1,0 +1,71 @@
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.progress {
+  $rotationSteps: 100;
+  $rotationIncrement: calc(calc(360 / $rotationSteps) / 2);
+  --diameter: 45px;
+  --stroke: 5px;
+
+  top: 35px;
+  right: 25%;
+
+  background: #ccc;
+  opacity: 0.8;
+  border-radius: 50%;
+  height: var(--diameter);
+  width: var(--diameter);
+  position: relative;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3);
+
+  &__mask,
+  &__fill {
+    border-radius: 50%;
+    clip: rect(0, var(--diameter), var(--diameter), calc(var(--diameter) / 2));
+    height: var(--diameter);
+    width: var(--diameter);
+    overflow: hidden;
+    position: absolute;
+  }
+  &__fill {
+    background: white;
+    clip: rect(0, calc(var(--diameter) / 2), var(--diameter), 0);
+  }
+  &:after {
+    position: absolute;
+    content: attr(data-progress) "%";
+    border-radius: 50%;
+    display: flex;
+    bottom: var(--stroke);
+    top: var(--stroke);
+    left: var(--stroke);
+    right: var(--stroke);
+    justify-content: center;
+    align-items: center;
+    color: #0f2027;
+    font-size: 16px;
+    font-family: Assistant ExtraBold;
+  }
+  @for $step from 1 through $rotationSteps {
+    &[data-progress="#{$step}"] {
+      .progress__mask--full,
+      .progress__fill {
+        transform: rotate(($step * $rotationIncrement) + deg);
+      }
+    }
+  }
+}
