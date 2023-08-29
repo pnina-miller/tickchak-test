@@ -28,7 +28,7 @@ const Code: React.FC<any> = () => {
                 } as any).then((otp: any) => {
                     setCode(old=>' 3. '+otp.code)
                     input.value = otp.code;
-                    if (form) form.submit();
+                    ac.abort();
                 }).catch(err => {
                     setCode(old=>old+ '4. error: ' + err.toString())
                     console.log(err);
