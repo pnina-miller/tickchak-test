@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c4cea57cb6c5d2a238fc81e11a255258",
+    "revision": "61bb84821b2f7d29854d1c670d6aac3c",
     "url": "/tickchak-test/index.html"
   },
   {
-    "revision": "367d77a5fb3477920325",
+    "revision": "f67609c1ea8839d4d493",
     "url": "/tickchak-test/static/css/main.b732601e.chunk.css"
   },
   {
-    "revision": "0d42359c108562157809",
-    "url": "/tickchak-test/static/js/2.e52a13e8.chunk.js"
+    "revision": "b0fb3e19834dbda2e0eb",
+    "url": "/tickchak-test/static/js/2.25a8a37c.chunk.js"
   },
   {
     "revision": "251ed0272d3a5bacbf66c7e872235080",
-    "url": "/tickchak-test/static/js/2.e52a13e8.chunk.js.LICENSE.txt"
+    "url": "/tickchak-test/static/js/2.25a8a37c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "367d77a5fb3477920325",
-    "url": "/tickchak-test/static/js/main.1e53454b.chunk.js"
+    "revision": "f67609c1ea8839d4d493",
+    "url": "/tickchak-test/static/js/main.e529956a.chunk.js"
   },
   {
     "revision": "cbeee98de0577766da39",
