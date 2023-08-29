@@ -36,6 +36,7 @@ const HomePage: React.FC<AllProps> = ({
 
   const getOtp = () => {
     if ('OTPCredential' in window) {
+      alert('supported')
       window.addEventListener('DOMContentLoaded', e => {
         const input = document.querySelector('input[autocomplete="one-time-code"]') as any;
         if (!input) return;
@@ -58,6 +59,9 @@ const HomePage: React.FC<AllProps> = ({
           console.log(err);
         });
       });
+    } else {
+      alert('not supported')
+
     }
   }
 useEffect(()=>{
