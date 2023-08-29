@@ -8,7 +8,6 @@ const Code: React.FC<any> = () => {
 
 
     const [code, setCode] = useState('code')
-    const [timer, setTimer] = useState(0)
     const getOtp = () => {
         if ('OTPCredential' in window) {
             setCode('1. supported ')
@@ -42,9 +41,6 @@ const Code: React.FC<any> = () => {
     }
     useEffect(() => {
         getOtp();
-        setInterval(() => {
-            setTimer(old=>old+1)
-        }, 1000);
     }, [])
 
 
@@ -55,7 +51,6 @@ const Code: React.FC<any> = () => {
                 <div>
                     <form>
                         <h1>{code}</h1>
-                        <h2>{timer}</h2>
                         <input autoComplete="one-time-code" required />
                         <input type="submit" />
                     </form>
