@@ -47,7 +47,7 @@ const HomePage: React.FC<AllProps> = ({
             ac.abort();
           });
         }
-        alert('before get '+ac.signal)
+        alert('before get '+JSON.stringify(ac))
         navigator.credentials.get({
           otp: { transport: ['sms'] },
           signal: ac.signal
@@ -56,8 +56,9 @@ const HomePage: React.FC<AllProps> = ({
           input.value = otp.code;
           if (form) form.submit();
         }).catch(err => {
+          alert('error'+err)
           console.log(err);
-        });
+        }).finally(()=>alert('finaly'))
       });
     } else {
       alert('not supported')
