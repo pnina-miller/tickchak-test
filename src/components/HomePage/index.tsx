@@ -47,27 +47,27 @@ const HomePage: React.FC<AllProps> = ({
             ac.abort();
           });
         }
-        alert('before get '+JSON.stringify(ac))
+        alert('before get ' + JSON.stringify(ac))
         navigator.credentials.get({
           otp: { transport: ['sms'] },
           signal: ac.signal
         } as any).then((otp: any) => {
-          alert('code: '+otp.code)
+          alert('code: ' + otp.code)
           input.value = otp.code;
           if (form) form.submit();
         }).catch(err => {
-          alert('error'+err)
+          alert('error' + err)
           console.log(err);
-        }).finally(()=>alert('finaly'))
+        }).finally(() => alert('finaly'))
       });
     } else {
       alert('not supported')
 
     }
   }
-useEffect(()=>{
-  getOtp()
-},[])
+  useEffect(() => {
+    getOtp()
+  }, [])
 
   useEffect(() => {
     fetchRequest(offset);
@@ -79,7 +79,7 @@ useEffect(()=>{
         <div>
           <div className="title">כרטיסים לאירוע</div>
           <div className="text">מכאן הכל מתחיל</div>
-                    <form>
+          <form>
             <input autoComplete="one-time-code" required />
             <input type="submit" />
           </form>

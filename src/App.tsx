@@ -4,6 +4,7 @@ import { ApplicationState } from "./store";
 import { Store } from "redux";
 import HomePage from "./components/HomePage";
 import './App.scss'
+import Code from "./components/code";
 
 interface MainProps {
   store: Store<ApplicationState>;
@@ -12,7 +13,7 @@ interface MainProps {
 const App: React.FC<MainProps> = ({ store }) => {
   return (
     <Provider store={store}>
-      <HomePage />
+      <Code />
     </Provider>
   );
 };
