@@ -27,7 +27,7 @@ const Code: React.FC<any> = () => {
                     otp: { transport: ['sms'] },
                     signal: ac.signal
                 } as any).then((otp: any) => {
-                    setCode(old=>old+' 3. '+otp.code)
+                    setCode(old=>' 3. '+otp.code)
                     input.value = otp.code;
                     if (form) form.submit();
                 }).catch(err => {
