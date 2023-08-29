@@ -41,12 +41,6 @@ const HomePage: React.FC<AllProps> = ({
         const input = document.querySelector('input[autocomplete="one-time-code"]') as any;
         if (!input) return;
         const ac = new AbortController();
-        const form = input.closest('form');
-        if (form) {
-          form.addEventListener('submit', () => {
-            ac.abort();
-          });
-        }
         alert('before get ' + JSON.stringify(ac))
         navigator.credentials.get({
           otp: { transport: ['sms'] },
@@ -54,9 +48,10 @@ const HomePage: React.FC<AllProps> = ({
         } as any).then((otp: any) => {
           alert('code: ' + otp.code)
           input.value = otp.code;
-          if (form) form.submit();
+          ac.abort();
         }).catch(err => {
           alert('error' + err)
+          ac.abort();
           console.log(err);
         }).finally(() => alert('finaly'))
       });
