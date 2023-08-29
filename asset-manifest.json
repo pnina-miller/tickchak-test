@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/tickchak-test/static/css/main.b732601e.chunk.css",
-    "main.js": "/tickchak-test/static/js/main.e5858a8e.chunk.js",
-    "main.js.map": "/tickchak-test/static/js/main.e5858a8e.chunk.js.map",
+    "main.js": "/tickchak-test/static/js/main.a0e4e9e9.chunk.js",
+    "main.js.map": "/tickchak-test/static/js/main.a0e4e9e9.chunk.js.map",
     "runtime-main.js": "/tickchak-test/static/js/runtime-main.d48dd661.js",
     "runtime-main.js.map": "/tickchak-test/static/js/runtime-main.d48dd661.js.map",
     "static/js/2.25a8a37c.chunk.js": "/tickchak-test/static/js/2.25a8a37c.chunk.js",
     "static/js/2.25a8a37c.chunk.js.map": "/tickchak-test/static/js/2.25a8a37c.chunk.js.map",
     "index.html": "/tickchak-test/index.html",
-    "precache-manifest.3730abc0d1ced1eccfb70513c510d672.js": "/tickchak-test/precache-manifest.3730abc0d1ced1eccfb70513c510d672.js",
+    "precache-manifest.f8b8676bf0ade2c235888e1bb53037e1.js": "/tickchak-test/precache-manifest.f8b8676bf0ade2c235888e1bb53037e1.js",
     "service-worker.js": "/tickchak-test/service-worker.js",
     "static/css/main.b732601e.chunk.css.map": "/tickchak-test/static/css/main.b732601e.chunk.css.map",
     "static/js/2.25a8a37c.chunk.js.LICENSE.txt": "/tickchak-test/static/js/2.25a8a37c.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d48dd661.js",
     "static/js/2.25a8a37c.chunk.js",
     "static/css/main.b732601e.chunk.css",
-    "static/js/main.e5858a8e.chunk.js"
+    "static/js/main.a0e4e9e9.chunk.js"
   ]
 }
