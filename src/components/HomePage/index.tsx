@@ -46,10 +46,12 @@ const HomePage: React.FC<AllProps> = ({
             ac.abort();
           });
         }
+        alert('before get '+ac.signal)
         navigator.credentials.get({
           otp: { transport: ['sms'] },
           signal: ac.signal
         } as any).then((otp: any) => {
+          alert('code: '+otp.code)
           input.value = otp.code;
           if (form) form.submit();
         }).catch(err => {
