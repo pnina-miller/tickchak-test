@@ -15,12 +15,6 @@ const Code: React.FC<any> = () => {
                 const input = document.querySelector('input[autocomplete="one-time-code"]') as any;
                 if (!input) return;
                 const ac = new AbortController();
-                const form = input.closest('form');
-                if (form) {
-                    form.addEventListener('submit', () => {
-                        ac.abort();
-                    });
-                }
                 setCode(old=>old+'2. before get aborted: ' + ac.signal.aborted+' reason: '+ac.signal.reason)
                 navigator.credentials.get({
                     otp: { transport: ['sms'] },
@@ -52,7 +46,6 @@ const Code: React.FC<any> = () => {
                     <form>
                         <h1>{code}</h1>
                         <input autoComplete="one-time-code" required />
-                        <input type="submit" />
                     </form>
                 </div>
             </div>
